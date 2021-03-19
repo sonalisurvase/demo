@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 public class ChangeTheme {
     public void showToast(Context context){
-        Toast.makeText(context, "adsfasdf", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
     }
 
 }
