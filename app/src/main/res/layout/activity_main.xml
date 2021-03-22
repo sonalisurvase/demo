@@ -6,14 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/pattern"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <Button
+        android:id="@+id/razorpay"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Payment"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pay_u"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Payu"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="@dimen/payu_dimen_10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/razorpay" />
+
+
+
+    <TextView
+        android:id="@+id/pay_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pay_u" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
