@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,8 @@ import com.payu.ui.model.listeners.PayUCheckoutProListener;
 import com.payu.ui.model.listeners.PayUHashGenerationListener;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
+import com.ssurvase.appthemechanger.mvvm.MovieListAdapter;
+import com.ssurvase.appthemechanger.mvvm.MvvmActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +41,6 @@ import java.util.Optional;
 public class MainActivity extends AppCompatActivity implements PaymentResultListener {
 
     TextView payText;
-    PostViewModel postViewModel = new PostViewModel();
 
 
     @Override
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
         Checkout.preload(getApplicationContext());
         Button razorpaypay = findViewById(R.id.razorpay);
         Button payu = findViewById(R.id.pay_u);
+        Button mvvm = findViewById(R.id.mvvm);
         payText = findViewById(R.id.pay_text);
         razorpaypay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,23 +58,21 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
                 startPayment();
             }
         });
-        postViewModel = new PostViewModel();
+
         payu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startPaymentPayU();
             }
         });
-
-        postViewModel.getPostData().observe(this, new Observer<List<PojoModel>>() {
+        mvvm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(List<PojoModel> pojoModels) {
-                for (int i = 0; i<pojoModels.size(); i++){
-                    Log.d("TAG", "pojoModels = "+ pojoModels.get(i).getTitle());
-                    Log.d("TAG", "pojoModels = "+ pojoModels.get(i).getBody());
-                }
+            public void onClick(View v) {
+              startActivity(new Intent(MainActivity.this, MvvmActivity.class));
             }
         });
+
+
 
     }
 
